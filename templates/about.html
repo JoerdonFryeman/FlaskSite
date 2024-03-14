@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1><br>
+<img class="image" align="left" src="{{url_for('static', filename='images/about_image.jpg')}}" height="600" hspace="30" alt="Спутник"/>
+<p>{{content|safe}}</p>
+{% endblock %}
