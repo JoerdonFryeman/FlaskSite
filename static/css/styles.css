@@ -1,10 +1,11 @@
 * {
 padding: 0;
-margin: 0;
+text-decoration: none;
 }
 html, body {
+margin: 0;
 height: 100%;
-background: #000000 url('../images/background_image.png') no-repeat 50% 0%;
+background: #1b1b1b url('../images/background_image.png') no-repeat 50% 0%;
 }
 #page {
 height: 100%;
@@ -14,36 +15,51 @@ margin: 0 auto;
 font-family: 'DejaVu Sans Light', 'Arial';
 font-size: 16px;
 }
-div.head {
+.head {
 height: 90px;
 padding-top: 33px;
 box-sizing: border-box;
 background: #172138;
 text-align: center;
 }
-div.menu {
+.menu {
 display: inline-block;
 padding: 0px 0px 0px 0px;
 }
-div.language {
+.language {
 padding: 0px 0px 0px 10px;
 display: inline-block;
 }
-div.content {
-height: 100%;
-max-height: 879px;
-padding: 0px 250px 0px 250px;
-box-sizing: border-box;
+.content {
 overflow-x: hidden;
 overflow-y: auto;
-background: rgba(204, 204, 204, 0.05);
+background: rgba(204, 204, 204, 0.6);
 }
-div.shell {
+.shell {
 min-height: 100%;
-padding: 50px 150px 50px 150px;
-background: rgba(204, 204, 204, 0.5);
 }
-div.footer {
+@media screen and (min-width: 1055px) {
+    .content {
+    height: 100%;
+    max-height: 879px;
+    padding: 0px 300px 0px 300px;
+    box-sizing: border-box;
+    }
+    .shell {
+    padding: 0px 50px 0px 50px;
+    }
+}
+@media screen and (max-width: 1054px) {
+    .content {
+    height: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    }
+    .shell {
+    padding: 0px 350px 0px 350px;
+    }
+}
+.footer {
 height: 90px;
 padding-top: 37px;
 box-sizing: border-box;
@@ -51,41 +67,36 @@ background: #0c0e0d;
 text-align: center;
 font-size: 14px;
 }
-.label-form label {
+.label-form {
 display: inline-block;
-min-width: 165px;
-font-size: 16px;
-}
-.flash {
-padding: 8px 0px 8px 0px;
-font-size: 16px;
+min-width: 140px;
+padding-bottom: 10px;
+vertical-align: top;
 }
 .error-form ul {
 list-style: none;
 padding: 0;
 color: #000000;
 }
-img.image {
+.image {
 padding: 0 25px 25px 0;
 }
-a.link-white {
+.link-white {
 color: #ffffff;
-text-decoration: none;
 }
-a.link-white:hover {
+.link-white:hover {
 color: #cccccc;
 }
-a.link-white:active {
+.link-white:active {
 color: #a3a3a3;
 }
-a.link-dark {
+.link-dark {
 color: #000000;
-text-decoration: none;
 }
-a.link-dark:hover {
+.link-dark:hover {
 color: #353535;
 }
-a.link-dark:active {
+.link-dark:active {
 color: #535353;
 }
 .button {
