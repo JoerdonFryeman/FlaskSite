@@ -1,6 +1,5 @@
 # FlaskSite template
-Example of a simple Flask website
-## Quickstart
+### Example of a simple Flask website
 Run the following commands to bootstrap your environment
 ```console
 sudo apt-get install python3-venv python3-pip
@@ -16,5 +15,5 @@ cp .env.template .env
 Run the app locally:
 source venv/bin/activate
 python3 views.py
-## Support with Bitcoin
+### Support with Bitcoin
 bc1qewfgtrrg2gqgtvzl5d2pr9pte685pp5n3g6scy
