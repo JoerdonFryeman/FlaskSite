@@ -2,8 +2,7 @@
 ### Example of a simple Flask website
 Run the following commands to bootstrap your environment
 ```console
-sudo apt-get install python3-venv python3-pip
-git clone https://github.com/JoerdenFryeman/FlaskSite
+git clone https://github.com/JoerdonFryeman/FlaskSite
 cd FlaskSite
 
 python3 -m venv venv
