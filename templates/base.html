@@ -3,34 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Пример веб-сайта на Flask.">
+    <meta name="keywords" content="Космос, Спутник-1, веб-сайт, Flask">
+    <meta name="author" content="JoerdonFryeman">
+    <meta name="robots" content="index, follow">
     <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-    <link rel="icon" href="{{url_for('static', filename='images/main_icon.png')}}">
-    <title>{{title}}</title>
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+    <title>{{ title }}</title>
 </head>
 
-<body>
-<div id="page">
-    <div class="head">
-        <div class="menu">
-            <a class="link-white" href="/">Главная страница</a>&nbsp
-            <a class="link-white" href="*">Скачать</a>&nbsp
-            <a class="link-white" href="/about">О сайте</a>&nbsp
+<body id="page">
+    <header class="head">
+        <nav class="center-menu">
+            <a class="link-white" href="/">Главная</a>
+            <a class="link-white" href="*" download="Спутник-1">Скачать</a>
+            <a class="link-white" href="/about">О сайте</a>
             <a class="link-white" href="/contact">Контакты</a>
-        </div>
-    </div>
-    <div class="content">
-        <div class="shell">
-            <h1>{% block content %}{% endblock %}</h1>
-        </div>
-    </div>
-    <div class="footer">
-        <div style="color: #ffffff">
-            <a class="link-white" href="/terms">Пользовательское соглашение</a> |
-            <a class="link-white" href="/privacy">Политика конфиденциальности</a> |
-            <a class="link-white" href='https://github.com/JoerdonFryeman/FlaskSite' target="_blank">GitHub</a> |
-            &copy 2024 Космос
-        </div>
-    </div>
-</div>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="center-shell">
+            {% block content %}{% endblock %}
+        </section>
+    </main>
+
+    <footer class="footer">
+        <nav class="center-menu">
+            <a class="link-white" href="/terms">Пользовательское соглашение</a>
+            <article class="author">|</article>
+            <a class="link-white" href="/privacy">Политика конфиденциальности</a>
+            <article class="author">|</article>
+            <article class="author">&copy; 2025 Космос</article>
+        </nav>
+    </footer>
 </body>
+
 </html>

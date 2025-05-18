@@ -1,0 +1,33 @@
+/* Стили для кнопок */
+.button {
+    background: #275940;
+    padding: 5px 9px 7px 8px;
+    font-size: 20px;
+    color: #dbdbdb;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+.button:hover {
+    background: #084c3a;
+    color: #cccccc;
+}
+.button:active {
+    background: #0c372c;
+    color: #a3a3a3;
+}
+
+/* Стили для смены языка */
+select {
+    background: #1d2933;
+    font-size: 16px;
+    color: #dbdbdb;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+select:hover {
+    background: #1d2933;
+    color: #bbbbbb;
+}

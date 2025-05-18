@@ -1,15 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>{{title}}</div><br>
-{% for message in get_flashed_messages() %}
-<div class="flash">{{message}}</div>
-{% endfor %}
-<form class="label-form" action="/contact" method="post">
-    <p><label>Имя: </label> <input type="text" name="username" value="" required/>
-    <p><label>Почта: </label> <input type="text" name="email" value="" required/>
-    <p><label>Сообщение</label>
-    <p><textarea name="messages" rows="16" cols="48"></textarea>
-    <p><input class="button" type="submit" value="Отправить"/>
-</form>
+<div class="form-shell">
+
+    <section>
+        <h1 class="post">{{ title }}</h1>
+        {% for message in get_flashed_messages() %}
+        <div class="error-form">{{ message }}</div>
+        {% endfor %}
+        <form method="POST" action="/contact">
+            <label class="label-form" for="username">Имя:</label>
+            <input class="label-form" type="text" id="username" name="username" required />
+            <label class="label-form" for="email">Почта:</label>
+            <input class="label-form" type="email" id="email" name="email" required />
+            <label class="label-form" for="messages">Сообщение:</label>
+            <textarea id="messages" name="messages" rows="9"></textarea>
+            <section class="button-wrapper"><input class="button" type="submit" value="Отправить" /></section>
+        </form>
+    </section>
+
+    <section>
+        <h2 class="post-second">Ссылки</h2>
+        <a class="link-dark" href='https://github.com/JoerdonFryeman' target="_blank" rel="noopener noreferrer" title="GitHub">
+            {% include 'inclusions/github_icon.html' %}
+        </a>
+        <a class="link-dark" onclick="copyToClipboard('http://127.0.0.1:5000')" title="Поделиться">
+            {% include 'inclusions/share_icon.html' %}
+        </a>
+    </section>
+
+    <section>
+        <h3 class="post-third">Вы можете поддержать наш проект с помощью Биткоина или PayPal</h3>
+        <a class="link-dark" onclick="copyToClipboard('bc1qewfgtrrg2gqgtvzl5d2pr9pte685pp5n3g6scy')" title="Поддержать с помощью Биткоина">
+            {% include 'inclusions/bitcoin_icon.html' %}
+        </a>
+    </section>
+
+</div>
+
+<div class="notification" style="display: none;"></div>
+<script src="{{ url_for('static', filename='js/notification_script.js') }}"></script>
 {% endblock %}

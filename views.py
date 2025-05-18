@@ -40,7 +40,12 @@ def privacy():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('page_not_found.html', title='Страница не найдена! Ошибка 404...')
+    return render_template('error_404.html', title='Страница не найдена! Ошибка 404...')
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('error_500.html', title='Внутренняя ошибка сервера'), 500
 
 
 if __name__ == "__main__":

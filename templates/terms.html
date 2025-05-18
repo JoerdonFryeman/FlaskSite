@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{title}}</h1><br>
-<p>{{content|safe}}</p>
+<div class="content-shell">
+
+    <section>
+        <h1 class="post">{{ title }}</h1>
+
+        <article class="text-container">
+            {% autoescape off %}
+            {{ content }}
+            {% endautoescape %}
+        </article>
+
+    </section>
+
+</div>
 {% endblock %}

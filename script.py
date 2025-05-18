@@ -1,6 +1,6 @@
 import sqlite3
 from flask import g
-from settings import *
+from settings import app
 
 
 def get_database_connection():
@@ -10,11 +10,10 @@ def get_database_connection():
 
 
 def create_database():
-    database = get_database_connection()
-    with app.open_resource('models.sql', 'r') as db:
-        database.cursor().executescript(db.read())
-    database.commit()
-    database.close()
+    with get_database_connection() as database:
+        with app.open_resource('models.sql', 'r') as db:
+            database.cursor().executescript(db.read())
+        database.commit()
 
 
 def get_db():
@@ -31,10 +30,10 @@ def close_db(error):
 
 def get_db_objects(url):
     try:
-        with sqlite3.connect('db.sqlite3') as db:
-            cur = db.cursor()
-            cur.execute(f'SELECT title, content FROM website WHERE url LIKE "{url}" LIMIT 1')
-            return cur.fetchall()[0]
-    except:
+        cur = get_db().cursor()
+        cur.execute('SELECT title, content FROM website WHERE url = ? LIMIT 1', (url,))
+        return cur.fetchall()[0]
+    except sqlite3.Error as e:
+        print(f"Database error: {e}")
         create_database()
-        print('* A new database has been created!')
+        return None

@@ -1,120 +1,304 @@
+@import url('forms.css');
+@import url('buttons.css');
+
+/* Сброс стилей */
 * {
-padding: 0;
-text-decoration: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none; /* Убираем стандартный контур браузера */
+    box-sizing: border-box; /* Упрощает работу с размерами элементов */
+    appearance: none; /* Убираем стандартный стиль браузера для всех элементов !!! */
 }
+
+/* Переменные цвета */
+:root {
+    --background-color: #1b1b1b;
+    --dark-color: #141517;
+    --white-color: #dbdbdb;
+    --head-color: #1d2933;
+    --content-color: rgba(204, 204, 204, 0.6);
+    --footer-color: #141517;
+
+    --font-size-head: 16px;
+    --font-size-content: 18px;
+    --font-size-footer: 14px;
+    --font-size-large: 1.8em;
+    --font-size-medium: 1.5em;
+    --font-size-small: 1.2em;
+    --font-size-mini: 0.9em;
+
+    --margin-large: 30px;
+    --margin-medium: 25px;
+    --margin-small: 20px;
+    --margin-mini: 15px;
+
+    --padding-large: 29px;
+    --padding-medium: 26px;
+    --padding-small: 20px;
+    --padding-mini: 15px;
+
+    --max-width-content: 1000px;
+    --max-width-form: 800px;
+    --max-width-image: 350px;
+    --width: 100%;
+}
+
+/* Основные стили */
 html, body {
-margin: 0;
-height: 100%;
-background: #1b1b1b url('../images/background_image.png') no-repeat 50% 0%;
+    height: 100%;
+    font-family: 'Helvetica Neue', 'DejaVu Sans Light', sans-serif; /* 'Avenir' */
+    background: var(--background-color) url('../images/background_image.png') no-repeat center top;
+    background-size: cover; /* Изображение фона будет покрывать весь экран */
 }
+
+/* Контейнер страницы */
 #page {
-height: 100%;
-max-width: 1920px;
-min-width: 1050px;
-margin: 0 auto;
-font-family: 'DejaVu Sans Light', 'Arial';
-font-size: 16px;
+    display: flex; /* Используем flexbox для расположения изображения и текстового контейнера */
+    flex-direction: column; /* Располагаем элементы в колонку */
+    min-height: 100vh;
 }
+
+/* Центрирование меню */
+.center-menu {
+    display: flex; /* Включаем Flexbox */
+    justify-content: center; /* Центрирование меню */
+    align-items: center; /* Центрируем элементы по горизонтали */
+    gap: 10px; /* Промежуток между ссылками */
+}
+
+/* Заголовок */
 .head {
-height: 90px;
-padding-top: 33px;
-box-sizing: border-box;
-background: #172138;
-text-align: center;
+    padding: var(--padding-medium) 0;
+    background: var(--head-color);
+    font-size: var(--font-size-head);
 }
-.menu {
-display: inline-block;
-padding: 0px 0px 0px 0px;
+
+/*
+.content-footer {
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+    min-height: 100vh;
 }
-.language {
-padding: 0px 0px 0px 10px;
-display: inline-block;
-}
+
 .content {
-overflow-x: hidden;
-overflow-y: auto;
-background: rgba(204, 204, 204, 0.6);
+    flex: 1;
+    padding: var(--padding-small);
+    background: var(--content-color);
 }
-.shell {
-min-height: 100%;
+*/
+
+/* Основной контент */
+.content {
+    flex: 1; /* Занимает оставшееся пространство */
+    padding: var(--padding-small); /* Отступы для контента */
+    overflow-y: auto; /* Прокрутка по вертикали */
+    background: var(--content-color);
 }
-@media screen and (min-width: 1055px) {
-    .content {
-    height: 100%;
-    max-height: 879px;
-    padding: 0px 300px 0px 300px;
-    box-sizing: border-box;
-    }
-    .shell {
-    padding: 0px 50px 0px 50px;
-    }
-}
-@media screen and (max-width: 1054px) {
-    .content {
-    height: 100%;
-    max-width: 100%;
-    min-width: 100%;
-    }
-    .shell {
-    padding: 0px 350px 0px 350px;
-    }
-}
+
+/* Нижний колонтитул */
 .footer {
-height: 90px;
-padding-top: 37px;
-box-sizing: border-box;
-background: #0c0e0d;
-text-align: center;
-font-size: 14px;
+    padding: var(--padding-large) 0;
+    background: var(--footer-color);
+    font-size: var(--font-size-footer);
 }
-.label-form {
-display: inline-block;
-min-width: 140px;
-padding-bottom: 10px;
-vertical-align: top;
+
+.center-shell {
+    display: flex; /* Включаем Flexbox */
+    flex-direction: column;
+    align-items: center;
 }
-.error-form ul {
-list-style: none;
-padding: 0;
-color: #000000;
+
+.content-shell {
+    max-width: var(--max-width-content); /* Максимальная ширина для контента */
+    width: var(--width); /* Занимает всю доступную ширину */
 }
-.image {
-padding: 0 25px 25px 0;
+
+.form-shell {
+    max-width: var(--max-width-form); /* Максимальная ширина для формы */
+    width: var(--width); /* Занимает всю доступную ширину */
 }
+
+/* Стили для изображения */
+.image-text-wrapper {
+    overflow: auto; /* Обеспечивает обтекание текста вокруг изображения */
+    margin: var(--margin-large) 0; /* Отступы вокруг контейнера */
+}
+.image-container {
+    max-width: var(--max-width-image); /* Ограничение ширины изображения */
+    height: auto; /* Сохранение пропорций изображения */
+    margin-right: var(--margin-large); /* Отступ между изображением и текстом */
+    float: left; /* Позволяет тексту обтекать изображение */
+}
+
+/* Стили текста и кнопки */
+.text-button-wrapper {
+    flex-direction: column; /* Располагаем текст и кнопку вертикально */
+    flex: 1; /* Текст займет оставшееся пространство */
+}
+.text-container {
+    color: var(--dark-color);
+    font-size: var(--font-size-content);
+}
+.button-wrapper {
+    display: flex; /* Используем flexbox для кнопки */
+    justify-content: flex-start; /* Выравнивание кнопки по левому краю */
+    margin-top: var(--margin-medium);
+}
+
+/* Стили для заголовков */
+.post {
+    color: var(--dark-color);
+    font-size: var(--font-size-large);
+    margin: var(--margin-medium) 0;
+}
+.post-second {
+    color: var(--dark-color);
+    font-size: var(--font-size-medium);
+    margin: var(--margin-medium) 0;
+}
+.post-third {
+    color: var(--dark-color);
+    font-size: var(--font-size-small);
+    margin: var(--margin-medium) 0;
+}
+
+/* Стили для ссылок */
 .link-white {
-color: #ffffff;
+    color: var(--white-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 .link-white:hover {
-color: #cccccc;
+    color: #bbbbbb;
 }
 .link-white:active {
-color: #a3a3a3;
+    color: #a3a3a3;
 }
 .link-dark {
-color: #000000;
+    color: var(--dark-color);
+    padding-right: var(--padding-small);
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer; /* Указатель при наведении */
 }
 .link-dark:hover {
-color: #353535;
+    color: #353535;
 }
 .link-dark:active {
-color: #535353;
+    color: #535353;
 }
-.button {
-background: #006a4e;
-padding: 10px;
-margin: 25px 0px 0px 0px;
-font-size: 20px;
-color: #ffffff;
-border: 1px solid #006a4e;
-border-radius: 6px;
+
+.author {
+    color: var(--white-color);
 }
-.button:hover {
-background: #084c3a;
-border: 1px solid #084c3a;
-color: #cccccc;
+
+/* Адаптивные стили */
+@media screen and (max-width: 1300px) {
+    .content {
+        padding: 10px; /* Отступы для контента */
+    }
+    .content-shell {
+        max-width: 800px; /* Максимальная ширина для контента */
+    }
+    .form-shell {
+        max-width: 600px; /* Максимальная ширина для формы */
+    }
+    .post {
+        margin: var(--margin-small) 0;
+    }
+    .post-second {
+        margin: var(--margin-small) 0;
+    }
+    .post-third {
+        margin: var(--margin-small) 0;
+    }
 }
-.button:active {
-background: #0c372c;
-border: 1px solid #0c372c;
-color: #a3a3a3;
+
+@media screen and (max-width: 1000px) {
+    .image-text-wrapper {
+        display: flex; /* Включаем Flexbox */
+        align-items: flex-start; /* Выравнивание по верхнему краю */
+        margin: var(--margin-large) 0; /* Отступы вокруг контейнера */
+        flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+    }
+    .image-container {
+        max-width: var(--max-width-image); /* Ограничение ширины изображения */
+        height: auto; /* Сохранение пропорций изображения */
+        margin-right: 0; /* Убираем отступ справа */
+        margin-bottom: var(--margin-small); /* Отступ между изображением и текстом */
+    }
+    .content-shell {
+        max-width: 350px; /* Максимальная ширина для контента */
+    }
+    .form-shell {
+        max-width: 450px; /* Максимальная ширина для формы */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .center-menu {
+        gap: 9px; /* Промежуток между ссылками */
+    }
+    .head {
+        padding: 23px 0;
+        font-size: 12px;
+    }
+    select {
+        font-size: 12px;
+    }
+    .footer {
+        padding: 26px 0;
+        font-size: 8px;
+    }
+    .notification {
+        right: 15px;
+        bottom: 78px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .image-container {
+        max-width: 100%; /* Ограничение ширины изображения до 100% от родительского контейнера */
+        margin-bottom: 20px; /* Отступ между изображением и текстом */
+    }
+    .center-menu {
+        gap: 8px; /* Промежуток между ссылками */
+    }
+    .head {
+        padding: 26px 0;
+        font-size: 11px;
+    }
+    select {
+        font-size: 10px;
+    }
+    .footer {
+        padding: 29px 0;
+        font-size: 6px;
+    }
+    .post {
+        font-size: var(--font-size-medium);
+        margin: var(--margin-small) 0;
+    }
+    .post-second {
+        font-size: var(--font-size-small);
+        margin: var(--margin-small) 0;
+    }
+    .post-third {
+        font-size: var(--font-size-mini);
+        margin: var(--margin-small) 0;
+    }
+    .text-container {
+        font-size: 16px; /* Уменьшение размера шрифта */
+    }
+    .content {
+        padding: 10px; /* Уменьшение отступов для меньших экранов */
+    }
+    .link-dark {
+        padding-right: 10px;
+    }
+    .notification {
+        bottom: 81px;
+
+    }
 }

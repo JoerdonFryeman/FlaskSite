@@ -1,7 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{title}}</h1><br>
-<img class="image" align="left" src="{{url_for('static', filename='images/main_image.jpg')}}" height="600" hspace="30" alt="Спутник"/>
-<p>{{content|safe}}</p>
+<div class="content-shell">
+
+    <section>
+        <h1 class="post">{{ title }}</h1>
+        <h2 class="post-second">Спутник-1</h2>
+
+        <div class="image-text-wrapper">
+
+            <img class="image-container" src="{{ url_for('static', filename='images/main_image.jpg') }}" alt="Спутник-1">
+
+            <div class="text-button-wrapper">
+
+                <article class="text-container">
+                    {% autoescape off %}
+                    {{ content }}
+                    {% endautoescape %}
+                </article>
+
+                <section class="button-wrapper">
+                    <a href="*" download="Спутник-1">
+                        <button type="button" class="button">Загрузить</button>
+                    </a>
+                </section>
+
+            </div>
+
+        </div>
+    </section>
+
+</div>
 {% endblock %}
