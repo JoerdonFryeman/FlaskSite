@@ -1,6 +1,3 @@
-@import url('forms.css');
-@import url('buttons.css');
-
 /* Сброс стилей */
 * {
     margin: 0;
@@ -48,7 +45,7 @@
 html, body {
     height: 100%;
     font-family: 'Helvetica Neue', 'DejaVu Sans Light', sans-serif; /* 'Avenir' */
-    background: var(--background-color) url('../images/background_image.png') no-repeat center top;
+    background: var(--background-color) url('../images/background_image.webp') no-repeat center top;
     background-size: cover; /* Изображение фона будет покрывать весь экран */
 }
 
@@ -74,27 +71,12 @@ html, body {
     font-size: var(--font-size-head);
 }
 
-/*
-.content-footer {
-    flex: 1;
-    display: flex;
-    overflow-y: auto;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.content {
-    flex: 1;
-    padding: var(--padding-small);
-    background: var(--content-color);
-}
-*/
-
 /* Основной контент */
 .content {
     flex: 1; /* Занимает оставшееся пространство */
     padding: var(--padding-small); /* Отступы для контента */
     overflow-y: auto; /* Прокрутка по вертикали */
+    min-height: calc(100vh - 66px);
     background: var(--content-color);
 }
 
@@ -193,6 +175,88 @@ html, body {
     color: var(--white-color);
 }
 
+/* Стили для кнопок */
+.button {
+    background: #275940;
+    padding: 5px 9px 7px 8px;
+    font-size: 20px;
+    color: #dbdbdb;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+.button:hover {
+    background: #084c3a;
+    color: #cccccc;
+}
+.button:active {
+    background: #0c372c;
+    color: #a3a3a3;
+}
+
+/* Стили для смены языка */
+select {
+    background: #1d2933;
+    font-size: 16px;
+    color: #dbdbdb;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+select:hover {
+    background: #1d2933;
+    color: #bbbbbb;
+}
+
+/* Стили для форм */
+.label-form {
+    display: flex; /* Используем flexbox для расположения контейнера форм */
+    padding: 10px 0;
+}
+.error-form ul {
+    list-style: none;
+    margin-top: 25px; /* Отступ сверху для разделения от поля ввода */
+    color: #a63127;
+}
+.captcha {
+    margin: 5px 0px 15px 0px;
+    font-size: 20px; /* Размер шрифта */
+    width: 150px; /* Ширина капчи */
+    height: 50px; /* Высота капчи */
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%; /* Ширина */
+    padding: 6px; /* Внутренние отступы */
+    border: 1px solid #e6e9ea; /* Цвет рамки */
+    border-radius: 5px; /* Закругленные углы */
+    background-color: #e5e8e9; /* Цвет фона полей ввода */
+    color: #141517; /* Цвет текста */
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #5a5e61
+}
+
+/* Стили всплывающих уведомлений */
+.notification {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background-color: rgba(90, 94, 97, 0.3);
+    color: #141517;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0; /* Начальная непрозрачность */
+    transition: opacity 0.6s ease; /* Плавный переход для непрозрачности */
+    z-index: 1000; /* Уведомление поверх других элементов */
+}
+
 /* Адаптивные стили */
 @media screen and (max-width: 1300px) {
     .content {
@@ -244,6 +308,9 @@ html, body {
         padding: 23px 0;
         font-size: 12px;
     }
+    .content {
+        min-height: calc(100vh - 58px);
+    }
     select {
         font-size: 12px;
     }
@@ -253,7 +320,7 @@ html, body {
     }
     .notification {
         right: 15px;
-        bottom: 78px;
+        bottom: 15px;
     }
 }
 
@@ -268,6 +335,9 @@ html, body {
     .head {
         padding: 26px 0;
         font-size: 11px;
+    }
+    .content {
+        min-height: calc(100vh - 63px);
     }
     select {
         font-size: 10px;
@@ -291,14 +361,7 @@ html, body {
     .text-container {
         font-size: 16px; /* Уменьшение размера шрифта */
     }
-    .content {
-        padding: 10px; /* Уменьшение отступов для меньших экранов */
-    }
     .link-dark {
         padding-right: 10px;
-    }
-    .notification {
-        bottom: 81px;
-
     }
 }
