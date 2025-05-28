@@ -14,5 +14,9 @@ cp .env.template .env
 Run the app locally:
 source venv/bin/activate
 python3 views.py
+
+### License
+This project is being developed under the MIT license.
+
 ### Support with Bitcoin
 bc1qewfgtrrg2gqgtvzl5d2pr9pte685pp5n3g6scy
